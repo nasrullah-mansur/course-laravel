@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use App\Models\Menu;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -46,13 +45,6 @@ class CourseController extends Controller
         $course->meta = $request->meta; 
         $course->save();
 
-        // Menu for classes;
-        $menu = new Menu();
-        $menu->label = $course->name;
-        $menu->slug = $course->slug;
-        $menu->status = $course->status;
-        $menu->save();
-
         return redirect()->route('course.index')->with('success', 'Course added successfully');
     }
 
@@ -63,8 +55,6 @@ class CourseController extends Controller
 
     function update(Request $request, $id) {
         $course = Course::where('id', $id)->firstOrFail();
-        // Menu for classes;
-        $menu = Menu::where('slug', $course->slug)->firstOrFail();
 
         $request->validate([
             'name' => 'required',
@@ -95,23 +85,13 @@ class CourseController extends Controller
         $course->meta = $request->meta; 
         $course->save();
 
-        // Menu for classes;
-        $menu->label = $course->name;
-        $menu->slug = $course->slug;
-        $menu->status = $course->status;
-        $menu->save();
-
         return redirect()->route('course.index')->with('success', 'Course updated successfully');
     }
 
     function delete(Request $request) {
         $course = Course::where('id', $request->id)->firstOrFail();
         removeImage($course->image);
-        // Menu for classes;
-        $menu = Menu::where('slug', $course->slug)->firstOrFail();
-        $menu->delete();
-        // Submenu will be removed;
-        
+                
         $course->delete();
     }
 }
