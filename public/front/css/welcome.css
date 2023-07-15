@@ -1,0 +1,23 @@
+
+.welcome [class^="col"] {
+    margin-bottom: 30px;
+}
+
+.welcome .item {
+    border: 1px solid #eee;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.welcome a {
+    text-decoration: none;
+    color: #333;
+}
+
+.welcome .item p {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 10px;
+    text-align: center;
+}

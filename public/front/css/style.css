@@ -1,0 +1,305 @@
+/* 
+  Name: Divine Coder Course Module;
+  Author: Nasrullah Mansur;
+  Version: 1.0;
+  Contact: nasrullah.cit.bd@gmail.com;
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+.header {
+    background-color: #1c1d1f;
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.header img {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    width: 400px;
+    z-index: -1;
+}
+
+.header-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-weight: 600;
+}
+
+.header p {
+    max-width: 700px;
+}
+
+.header ul li span:first-child {
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.header a {
+    color: #5624d0;
+    font-weight: 600;
+}
+
+.course-content {
+    padding: 60px 0;
+}
+
+.course-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+.course-content > p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #5624d0;
+}
+
+.course-content .content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.course-content .content .module .module-list .module-category {
+    border: 1px solid #d1d7dc;
+    position: relative;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.course-content .content .module .module-list .module-category:not(:last-child) {
+    border-bottom-width: 0;
+}
+
+.course-content .content .module .module-list .module-category button {
+    background-color: #f7f9fa;
+    width: 100%;
+    display: block;
+    border: 0;
+    padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+.course-content .content .module .module-list .module-category button.open {
+    border-bottom: 1px solid #d1d7dc;
+}
+
+.course-content .content .module .module-list .module-category button span {
+    font-weight: 600;
+    position: relative;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.course-content .content .module .module-list .module-category button span::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border-top: 2px solid #212529;
+    border-left: 2px solid #212529;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+}
+
+.course-content .content .module .module-list .module-category button small {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@media (max-width: 767.98px) {
+    .course-content .content .module .module-list .module-category button {
+        flex-direction: column;
+    }
+
+    .course-content .content .module .module-list .module-category button small {
+        margin-left: 0;
+        margin-right: auto;
+        padding-left: 20px;
+    }
+}
+
+.course-content .content .module .module-list .module-category button.open span::before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    top: 10px;
+}
+
+.course-content .content .module .module-list .module-category .text {
+    padding: 0 15px;
+}
+
+.course-content .content .module .module-list .module-category .text p {
+    margin-bottom: 0;
+}
+
+.course-content .content .module .class-list {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.course-content .content .module .class-list .class-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.course-content .content .module .class-list .class-item a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 400;
+    text-decoration: none;
+    color: #212529;
+}
+
+.course-content .content .module .class-list .class-item a:hover {
+    color: #5624d0;
+}
+
+.course-content .content .module .class-list .class-item a span {
+    padding-right: 8px;
+}
+
+.course-content .content .module .class-list .class-item .label {
+    margin-left: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+}
+
+.course-content .content .module .class-list .class-item .label div {
+    width: 4px;
+    background-color: #5624d0;
+    margin-left: 3px;
+    border-radius: 2px;
+}
+
+.course-content .content .module .class-list .class-item .label div.beginner {
+    opacity: 0.5;
+    height: 6px;
+}
+
+.course-content .content .module .class-list .class-item .label div.intermediate {
+    opacity: 0.7;
+    height: 10px;
+}
+
+.course-content .content .module .class-list .class-item .label div.expert {
+    opacity: 1;
+    height: 14px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #1c1d1f;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.overlay.show {
+    opacity: 0.8;
+    visibility: visible;
+}
+
+.popup {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.popup .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.popup p {
+    font-size: 18px;
+    margin-bottom: 0;
+    line-height: 28px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.popup ul li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 5px;
+}
+
+.popup ul li::before {
+    content: "\2713";
+    padding-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
