@@ -32,19 +32,25 @@ class ClassNameController extends Controller
     }
 
     function all_update(Request $request) {
+       
         if(isset($request->ids)) {
             foreach($request->ids as $key => $id) {
                 $class_name = ClassName::where('id', $id)->firstOrFail();
-                $class_name->title = $request->titles[$key];
-                $class_name->course_id = $request->course_ids[$key];
-                $class_name->serial = $request->serials[$key];
-                $class_name->save();
+                $exist = $request->titles[$key];
+
+                if(!$exist) {
+                    $class_name->delete();
+                } else {
+                    $class_name->title = $request->titles[$key];
+                    $class_name->course_id = $request->course_ids[$key];
+                    $class_name->serial = $request->serials[$key];
+                    $class_name->save();
+                }
             }
             return redirect()->route('admin.class.name.index', $request->course_ids[0])->with('success', 'All Items updated successfully');
-        } else {
-            ClassName::truncate();
-            return redirect()->back();
         }
+
+        return redirect()->back();
         
     }
 

@@ -35,17 +35,23 @@ class ClassTopicController extends Controller
        
         if(isset($request->ids)) {
             foreach($request->ids as $key => $id) {
+                $exist = $request->titles[$key];
                 $class_name = ClassTopic::where('id', $id)->firstOrFail();
-                $class_name->title = $request->titles[$key];
-                $class_name->class_name_id = $request->class_name_ids[$key];
-                $class_name->serial = $request->serials[$key];
-                $class_name->save();
+
+                if(!$exist) {
+                    $class_name->delete();
+                } else {
+                    $class_name->title = $request->titles[$key];
+                    $class_name->class_name_id = $request->class_name_ids[$key];
+                    $class_name->serial = $request->serials[$key];
+                    $class_name->save();
+                }
+
             }
             return redirect()->route('admin.class.topic.index', $request->class_name_ids[0])->with('success', 'All Items updated successfully');
-        } else {
-            ClassTopic::truncate();
-            return redirect()->back();
-        }
+        } 
+
+        return redirect()->back();
     }
 
     function delete(Request $request) {
