@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Batch;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -9,8 +10,16 @@ const PATIENT_ROLE = 'patient-role';
 
 const STATUS_ACTIVE = 'ACTIVE';
 const STATUS_INACTIVE = 'INACTIVE';
+const STATUS_COMPLETED = 'COMPLETED';
 
 const COURSE_IMAGE = 'uploaded_file/images/course/';
+
+const ROLE_ADMIN = 'ADMIN';
+const ROLE_TEACHER = 'TEACHER';
+const ROLE_STUDENT = 'STUDENT';
+
+const CLASS_START = 'START';
+const CLASS_END = 'END';
 
 // ================ Image Upload =========================== //
 function ImageUpload($new_file, $path, $old_image = null)
@@ -74,15 +83,4 @@ function generateRandomString($length = 4)
     return $randomString . '-';
 }
 
-
-// function main_menu()
-// {
-//     $main_menu = MenuItem::with('menuItem')
-//         ->where('status', STATUS_ACTIVE)
-//         ->where('set_location', 'header-menu')
-//         ->where('p_id', '0')
-//         ->orderBy('position')
-//         ->get();
-//     return $main_menu;
-// }
 

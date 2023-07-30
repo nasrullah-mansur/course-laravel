@@ -1,29 +1,50 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+@extends('front.component.layout')
+
+@section('component')
+<div class="container">
+    <div class="profile-section">
+        <h2 class="border-bottom pb-1">Profile Information</h2>
+        <form action="">
+            <div class="mb-2">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" >
+            </div>
+            
+            <div class="mb-2">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email">
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone">
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
     </div>
-</x-app-layout>
+
+    <div class="profile-section">
+        <h2 class="border-bottom pb-1">Password Update</h2>
+        <form action="">
+                        
+            <div class="mb-2">
+                <div class="show-hide-password">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="show-hide-password">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+</div>
+@endsection

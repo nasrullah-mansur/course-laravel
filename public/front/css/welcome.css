@@ -21,3 +21,99 @@
     padding-top: 10px;
     text-align: center;
 }
+
+.main-content-area {
+    min-height: calc(100vh - 180px);
+}
+
+footer a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Student Dashboard */
+.student-profile {
+    padding: 50px 0;
+}
+
+.student-profile .profile {
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.student-profile .profile img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%
+}
+
+.student-profile .info h1 {
+    font-size: 24px;
+    text-align: center;
+    padding: 15px 0 20px;
+}
+
+.student-profile .info ul {
+    list-style: none;
+}
+
+.student-profile .info ul li {
+    text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.student-profile .student-status .status-item {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.student-profile .student-status .status-item p {
+    font-size: 18px;
+}
+.forgot-link {
+    text-decoration: none;
+    color: #333;
+}
+.student-profile .student-status .status-item h4 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.student-profile .attendance {
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-top: 20px;
+}
+
+.student-profile .class-attendance {
+    padding: 10px 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-bottom: 10px;
+}
+
+.student-profile .class-attendance select {
+    max-width: 140px;
+    margin-left: auto;
+}
+
+/* Auth */
+.auth-section {
+    max-width: 600px;
+    margin: 0 auto 0;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+/* Profile */
+.profile-section {
+    max-width: 600px;
+    margin: 50px auto 30px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}

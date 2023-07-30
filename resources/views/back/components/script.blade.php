@@ -21,6 +21,16 @@
 <script type="text/javascript" src="{{ asset('back/js/custom.js') }}"></script>
 <script src="{{ asset('back/plugins/nestable/nesteble_custom.js') }}"></script>
 
+<script src="{{ asset('back/plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
+
+<script>
+    $('.custom-datepicker').datepicker({
+        autoclose: true,
+        format:'dd/mm/yyyy',
+        todayHighlight: true,
+    });
+</script>
+
 @method('custom_js')
 
 @stack('db_js')

@@ -26,4 +26,6 @@
   <!-- END Page Level CSS-->
 
   <link rel="stylesheet" href="{{ asset('back/css/custom.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('back/plugins/datepicker/bootstrap-datepicker.min.css') }}">
  
