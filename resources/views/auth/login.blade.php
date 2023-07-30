@@ -20,6 +20,7 @@
                     <label class="col-12 mb-2 label-control text-bold-500">
                         <div class="show-hide-password">
                             Password
+                            <span class="show-hide-icon">SHOW</span>
                             <input type="password" class="form-control" name="password" />
                             @if ($errors->has('password'))
                             <small class="text-danger">{{ $errors->first('password') }}</small>
@@ -36,7 +37,7 @@
                     </div>
                     <div class="col-12 mt-2">
                         <button type="submit" class="btn btn-success">Log In</button>
-                        <a class="forgot-link" href="{{ route('password.request') }}">Forgot you password?</a>
+                        <a class="forgot-link ms-3" href="{{ route('password.request') }}">Forgot you password?</a>
                     </div>
                 </div>
             </div>

@@ -40,8 +40,7 @@
                   <td>{{ $batch->status }}</td>
                   <td>
                     <div class="d-flex action-btn">
-                      <a data-id="{{ $batch->id }}" data-name="{{ $batch->name }}" data-starting_date="{{ $batch->starting_date }}" class="btn btn-icon btn-success edit-item" style="margin-right: 5px;" href=""><i class="ft-edit"></i></a>
-                      <a data-id="{{ $batch->id }}" class="btn btn-icon btn-danger delete-data" style="margin-right: 5px;" href="#"><i class="ft-trash-2"></i></a> 
+                      <a data-id="{{ $batch->id }}" data-name="{{ $batch->name }}" data-starting_date="{{ $batch->starting_date }}" class="btn btn-icon btn-success edit-item" style="margin-right: 5px;" href=""><i class="ft-edit"></i></a> 
                   </div>
                   </td>
                 </tr>
@@ -177,75 +176,7 @@
         })
 
 
-          // Delete Data;
-          $('.table').on('click', '.delete-data', function(e) {
-             e.preventDefault();
-             let deleteRoute = "{{ route('batch.delete') }}";
-                 let delteteDataId = $(this).attr("data-id");
-                 swal({
-                     title: "Are you sure?",
-                     text: "You will not be able to recover this imaginary item!",
-                     icon: "warning",
-                     showCancelButton: true,
-                     buttons: {
-                         cancel: {
-                             text: "No, cancel please!",
-                             value: null,
-                             visible: true,
-                             className: "btn-warning",
-                             closeModal: false,
-                         },
-                         confirm: {
-                             text: "Yes, delete it!",
-                             value: true,
-                             visible: true,
-                             className: "",
-                             closeModal: false,
-                         },
-                     },
-                 }).then((isConfirm) => {
-                     if (isConfirm) {
-                         $.ajax({
-                             type: "POST",
-                             url: deleteRoute,
-                             data: {
-                                 id: delteteDataId,
-                             },
-                             success: function(response){
-                                console.log(response);
-                                if(response == 'sorry') {
-                                    swal({
-                                        icon: "error",
-                                        title: "Sorry!",
-                                        text: "We can't remove this batch",
-                                        showConfirmButton: true,
-                                        closeModal: false,
-                                    });
-                                } else {
-                                    swal({
-                                        icon: "success",
-                                        title: "Deleted!",
-                                        text: "Your imaginary file has been deleted.",
-                                        showConfirmButton: true,
-                                        closeModal: false,
-                                    });
-              
-                                    location.reload();
-                                }
-                                 
-                             }
-                         });
-                     } else {
-                         swal({
-                             icon: "error",
-                             title: "Cancelled!",
-                             text: "Your imaginary file is safe :",
-                             timer: 2000,
-                             showConfirmButton: true,
-                         });
-                     }
-                 });
-         });
+         
      
      </script>
 @endpush

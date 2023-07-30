@@ -28,6 +28,7 @@ class AttendanceController extends Controller
             $key = array_search($class_no_request, $student_absent);
             if ($key !== false) {
                 unset($student_absent[$key]);
+                $student_absent = array_values($student_absent);
             }
         } else {
             // Absent handler;
@@ -39,6 +40,7 @@ class AttendanceController extends Controller
             $key = array_search($class_no_request, $student_attendance);
             if ($key !== false) {
                 unset($student_attendance[$key]);
+                $student_attendance = array_values($student_attendance);
             }
         }
 
@@ -49,7 +51,7 @@ class AttendanceController extends Controller
         $student->save();
         
 
-        return redirect()->route('dashboard');
+        return redirect()->route('student.dashboard')->with('success', 'Thank you for your attendance');
 
     }
 
@@ -70,6 +72,7 @@ class AttendanceController extends Controller
             $key = array_search($class_no_request, $student_absent);
             if ($key !== false) {
                 unset($student_absent[$key]);
+                $student_absent = array_values($student_absent);
             }
         } else {
             // Absent handler;
@@ -81,6 +84,7 @@ class AttendanceController extends Controller
             $key = array_search($class_no_request, $student_attendance);
             if ($key !== false) {
                 unset($student_attendance[$key]);
+                $student_attendance = array_values($student_attendance);
             }
         }
 
@@ -90,6 +94,6 @@ class AttendanceController extends Controller
         
         $student->save();
         
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Attendance changed successfully');
     }
 }

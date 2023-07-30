@@ -13,6 +13,7 @@ const STATUS_INACTIVE = 'INACTIVE';
 const STATUS_COMPLETED = 'COMPLETED';
 
 const COURSE_IMAGE = 'uploaded_file/images/course/';
+const STUDENT_PROFILE_IMAGE = 'uploaded_file/images/student_profile/';
 
 const ROLE_ADMIN = 'ADMIN';
 const ROLE_TEACHER = 'TEACHER';

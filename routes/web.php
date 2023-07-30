@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\ClassNameController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentDashboardController;
+use App\Http\Controllers\StudentProfileController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -41,11 +43,11 @@ require __DIR__.'/auth.php';
 // ======================= Back Route =================
 Route::middleware(['auth', 'active'])->group(function() {
 
-    // Profile;
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+    // Student Profile;
+    Route::get('/student/profile/edit', [StudentProfileController::class, 'edit'])->name('student.profile.edit');
+    Route::post('/student/profile/update/profile-info', [StudentProfileController::class, 'update_profile_info'])->name('student.profile_info.update');
+    Route::post('/student/profile/update/password', [StudentProfileController::class, 'update_password'])->name('student.password.update');
+    Route::post('/student/profile/update/image', [StudentProfileController::class, 'image_update'])->name('student.image.update');
 
     // Student Dashboard;
     Route::get('my-dashboard', [StudentDashboardController::class, 'dashboard'])->name('student.dashboard');
@@ -53,8 +55,15 @@ Route::middleware(['auth', 'active'])->group(function() {
     // Student Attendance;
     Route::post('student-attendance', [AttendanceController::class, 'student_attendance'])->name('student.attendance.store');
 
-    Route::middleware('admin', 'active')->group(function() {
+    Route::middleware('admin')->group(function() {
+
         Route::prefix('admin')->group(function() {
+
+            // Profile;
+            Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+            Route::post('/profile/profile-info', [AdminProfileController::class, 'update_profile_info'])->name('admin.profile_info.update');
+            Route::post('/profile/password', [AdminProfileController::class, 'update_password'])->name('profile.password.update');
+            Route::post('/profile/remove', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
 
             // Admins;
             Route::get('admin', [UserController::class, 'index'])->name('admins');

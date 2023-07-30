@@ -117,3 +117,27 @@ footer a {
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
+.show-hide-password {
+    position: relative;
+}
+
+.show-hide-icon {
+    position: absolute;
+    right: 15px;
+    top: 35px;
+    z-index: 9;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.show-hide-icon.more-down {
+    top: 42px;
+}
+
+.show-hide-icon:hover {
+    color: rgba(0, 0, 0, 1);
+}

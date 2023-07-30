@@ -23,6 +23,7 @@
                     <label class="col-12 mb-2 label-control text-bold-500">
                         <div class="show-hide-password">
                             Password
+                            <span class="show-hide-icon">SHOW</span>
                             <input type="password" class="form-control" name="password" />
                             @if ($errors->has('password'))
                             <small class="text-danger">{{ $errors->first('password') }}</small>
@@ -32,6 +33,7 @@
                     <label class="col-12 mb-2 label-control text-bold-500">
                         <div class="show-hide-password">
                             Confirm Password
+                            <span class="show-hide-icon">SHOW</span>
                             <input type="password" class="form-control" name="password_confirmation" />
                             @if ($errors->has('password_confirmation'))
                             <small class="text-danger">{{ $errors->first('password_confirmation') }}</small>

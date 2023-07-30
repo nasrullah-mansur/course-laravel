@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="mt-3 text-center">
-                    <a href="{{ route('profile.edit') }}" class="btn btn-success">Edit Profile</a>
+                    <a href="{{ route('student.profile.edit') }}" class="btn btn-success">Edit Profile</a>
                 </div>
             </div>
             @if ($running_class && !$attendance_done)
