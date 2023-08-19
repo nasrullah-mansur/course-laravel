@@ -1,4 +1,4 @@
-@extends('back.layout.layout', [$title = $batch->name, $add_btn = 'Add new class', $add_btn_link = '#'])
+@extends('back.layout.layout')
 
 @section('content')
 <section>
@@ -26,24 +26,27 @@
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Class No</th>
-                      <th>Date</th>
+                      <th>Student Name</th>
                       <th>Status</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($d_classes as $d_class)
+                    @foreach ($batch->students as $student)
                         <tr>
-                            <td>Class No: {{ $d_class->class_no }}</td>
-                            <td>{{ $d_class->date }}</td>
-                            
-                            <td>{{ $d_class->status }}</td>
+                            <td>{{ $student->name }}</td>
                             <td>
-                                <div class="d-flex action-btn">
-                                    <a data-id="{{ $d_class->id }}" data-date="{{ $d_class->date }}" data-class_no="{{ $d_class->class_no }}" class="btn btn-icon btn-success edit-item" style="margin-right: 5px;" href=""><i class="ft-edit"></i></a>
-                                    <a data-route="{{ route('daily.class.attendance', [$batch->id, $d_class->id]) }}" data-id="{{ $d_class->id }}" class="btn btn-icon btn-info view-data" style="margin-right: 5px;" href="#"><i class="ft-eye"></i></a> 
-                                </div>
+
+                                @php
+                                    $student_attendance = $student->attendance ? json_decode($student->attendance) : [];
+
+                                    if(in_array($class_id, $student_attendance)) {
+                                        echo('<span class="text-success">Present</span>');
+                                    } else {
+                                        echo('<span class="text-danger">Absent</span>');
+                                    }
+
+                                @endphp
+
                             </td>
                         </tr>
                     @endforeach
@@ -51,7 +54,7 @@
                 </table>
               </div>
               <div class="paginate-area">
-                {{ $d_classes->onEachSide(5)->links() }}
+                
             </div>
           </div>
 
@@ -155,7 +158,7 @@
 
 
 
-  <!-- Attendance Modal -->
+  <!-- Edit Modal Modal -->
   <div class="modal fade" id="presentModel" tabindex="-1" aria-labelledby="presentModelLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -183,7 +186,7 @@
                     </table>
                   </div>
                   <div class="text-center">
-                    <a id="view-data-route" href="#" class="btn btn-primary">View Details</a>
+                    <a href="#" class="btn btn-primary">View Details</a>
                   </div>
             </div>
             
@@ -211,9 +214,6 @@
             
             let b_id = "{{ $batch->id }}";
             let c_id = $(this).attr("data-id");
-            let route = $(this).attr('data-route');
-
-            $('#view-data-route').attr('href', route);
 
             $.ajax({
                 method: 'POST',

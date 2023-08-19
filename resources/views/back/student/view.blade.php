@@ -44,9 +44,9 @@
                             <td>{{ $d->date }}</td>
                             <td>
                                 @if (in_array($d->id, $student_attendance))
-                                    Present
+                                    <span class="text-success">Present</span>
                                 @else
-                                Absent
+                                <span class="text-danger">Absent</span>
                                 @endif
                             </td>
                         </tr>

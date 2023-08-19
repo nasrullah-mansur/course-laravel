@@ -18,4 +18,6 @@ class Student extends Model
             return count(json_decode($this->attendance ?? []));
         }
     }
+
+    
 }

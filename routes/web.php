@@ -106,6 +106,9 @@ Route::middleware(['auth', 'active'])->group(function() {
             Route::get('daily-class/{slug}', [DClassController::class, 'get_classes'])->name('d.class.get.classes');
             Route::post('daily-class/store', [DClassController::class, 'store'])->name('d.class.store');
             Route::post('daily-class/update', [DClassController::class, 'update'])->name('d.class.update');
+
+            // Daily class attendance check;
+            Route::get('daily-class/attendance/{batch}/{class}/check', [DClassController::class, 'class_attendance'])->name('daily.class.attendance');
     
             // Student;
             Route::get('student/find', [StudentController::class, 'find'])->name('student.find');
@@ -114,10 +117,15 @@ Route::middleware(['auth', 'active'])->group(function() {
             Route::post('student/store', [StudentController::class, 'store'])->name('student.store');
             Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
             Route::post('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+
             // Update by admin;
             Route::post('student/update/by/admin', [StudentController::class, 'update_admin'])->name('student.update.admin');
             Route::post('student/attendance/update/by/admin', [AttendanceController::class, 'student_attendance_by_admin'])->name('student.attendance.update.by.admin');
             Route::get('student/update-info/{batch_id}/{student_id}', [StudentController::class, 'show_info'])->name('student.attendance.info');
+
+
+            // Total Student;
+            Route::post('total-student', [DClassController::class, 'total_student'])->name('total.student');
         });
     });
   

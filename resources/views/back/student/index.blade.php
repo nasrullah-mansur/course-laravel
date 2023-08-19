@@ -9,7 +9,7 @@
         <div class="card-header">
           <h4 class="card-title">Batch No: {{ $batch->name }}</h4>
           <br>
-          <p>Total Student: {{ $students->count() }}</p> 
+          <p>Total Student: {{ $students->total() }}</p> 
           <p>Completed Classes: {{ $completed_class_count }}</p> 
           <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
           <div class="heading-elements">
